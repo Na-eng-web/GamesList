@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
+import Navbar from "./componant/Navbar";
+import Gamegrid from "./componant/Gamegrid";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid
+      templateAreas={{
+        base: `"nav" "main"`,
+        lg: `"nav nav" "aside main"`,
+      }}
+    >
+      <GridItem area="nav">
+        <Navbar />
+      </GridItem>
+      <Show above="lg">
+        <GridItem area="aside">Aside</GridItem>
+      </Show>
+      <GridItem area="main">
+        <Gamegrid />
+      </GridItem>
+    </Grid>
   );
-}
+};
 
 export default App;
