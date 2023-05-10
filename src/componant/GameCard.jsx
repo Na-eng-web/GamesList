@@ -5,7 +5,6 @@ import {
   HStack,
   Heading,
   Image,
-  Text,
 } from "@chakra-ui/react";
 import React from "react";
 import PlatformIconList from "./platformIcon";
@@ -16,8 +15,7 @@ const GameCard = ({ game }) => {
     <Card borderRadius={"10px"} overflow={"hidden"}>
       <Image src={getsmallUrl(game.background_image)} />
       <CardBody>
-        <Heading fontSize={"2xl"}>{game.name}</Heading>
-        <HStack justifyContent={"space-between"}>
+        <HStack mb={2} justifyContent={"space-between"}>
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
@@ -36,6 +34,7 @@ const GameCard = ({ game }) => {
             {game.metacritic}
           </Badge>
         </HStack>
+        <Heading fontSize={"2xl"}>{game.name}</Heading>
       </CardBody>
     </Card>
   );
